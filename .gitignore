@@ -1,5 +1,6 @@
 **/*[Cc]ache*/**
 **/\.git/**
+config/nvim/plugin
 *README*
 *SECURITY*
 *LICENSE*

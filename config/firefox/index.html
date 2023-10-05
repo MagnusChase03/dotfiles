@@ -1,0 +1,91 @@
+<html>
+
+    <head>
+        <title>Welcome MagnusChase03</title>
+
+        <style>
+            html {
+                background-image: url("../../Pictures/wallpaper.jpg"); 
+                background-size: 100% 100%;
+            }
+            html, body {
+                margin: 0px;
+                height: 100%;
+                
+                color: white;
+                font-family: "firacode nerd font";
+            }
+            body {
+                margin-top: -20px;
+            }
+            .container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                height: 100%;
+            }
+            .card {
+                display: flex;
+                flex-direction: column;
+                width: 50%;
+                left: 25%;
+                align-items: center;
+                justify-content: center;
+            }
+            .flex {
+                display: flex;
+                justify-content: center;
+                width: 100%;
+            }
+            .item {
+                width: 100%;
+                text-align: center;
+            }
+            hr {
+                width: 100%;
+                border: 1px solid white;
+                margin-bottom: 20px;
+            }
+            li {
+                margin-bottom: 10px;
+            }
+            a, a:after, a:link, a:active {
+                color: white;
+                text-decoration: none;
+                font-weight: bold;
+            }
+        </style>
+
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="card">
+                <h1 id="time"></h1>
+                <h1>Welcome MagnusChase03</h1>
+                <p id="date"></p>
+                <hr>
+                <div class="flex">
+                    <div class="item">
+                        <li><a href="https://github.com">Github</a></li>
+                        <li><a href="https://archlinux.org">ArchWiki</a></li>
+                    </div> 
+                    <div class="item">
+                        <li><a href="https://news.ycombinator.com">Hacker News</a></li>
+                    </div> 
+                </div>
+            </div>
+        </div>
+
+        <script>
+            let date = new Date();
+
+            let date_ele = document.getElementById("date");
+            let time_ele = document.getElementById("time");
+            date_ele.textContent = date.toDateString();
+            time_ele.textContent = date.toLocaleTimeString();
+        </script>
+    </body>
+
+</html>

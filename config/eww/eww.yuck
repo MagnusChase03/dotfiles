@@ -1,0 +1,62 @@
+(defwindow bar
+    :monitor 0
+    :geometry (
+        geometry :x "0%"
+                 :y "0%"
+                 :width "100%"
+                 :height "42px"
+                 :anchor "bottom center")
+    :stacking "fg"
+    :reserve (
+        struts :distance "50px"
+               :side "bottom")
+    :windowtype "dock"
+    :wm-ignore false
+
+    (bar))
+
+(defwidget bar []
+    (centerbox :orientation "horizontal"
+               :halign "left"
+               :class "bar"
+
+               (workspaces)
+               (empty)
+               (status)))
+
+(defwidget workspaces []
+    (box :orientation "horizontal"
+         :halign "start"
+
+         (button "I")
+         (button "II")
+         (button "III")
+         (button "IV")))
+
+(defwidget status []
+    (box :orientation "horizontal"
+         :halign "end"
+         :class "status"
+          
+         (item :text "  ${battery}%")
+         (item :text "  ${time}")))
+
+(defwidget item [text]
+    (box :orientation "horizontal"
+         :halign "end"
+         :class "item"
+         text))
+
+(defwidget empty []
+    (box :orientation: "horizontal"
+         :halign "start"))
+
+
+(defpoll battery :interval "60s"
+              :initial ""
+              `cat /sys/class/power_supply/BAT1/capacity`)
+
+(defpoll time :interval "1s"
+              :initial ""
+              `date +%H:%M`)
+

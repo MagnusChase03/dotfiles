@@ -21,4 +21,7 @@ xsetroot -cursor_name left_ptr
 
 feh --bg-fill ~/Pictures/wallpaper.jpg
 picom -b
-~/.config/polybar/start.sh
+#~/.config/polybar/start.sh
+
+eww daemon
+eww open bar

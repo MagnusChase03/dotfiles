@@ -1,5 +1,5 @@
 #!/bin/bash
 
 if [[ -z $TMUX ]] ; then
-    startx
+    Hyprland
 fi

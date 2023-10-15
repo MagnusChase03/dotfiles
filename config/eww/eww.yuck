@@ -12,6 +12,7 @@
                :side "bottom")
     :windowtype "dock"
     :wm-ignore false
+    :exclusive true
 
     (bar))
 
@@ -28,10 +29,10 @@
     (box :orientation "horizontal"
          :halign "start"
 
-         (button "I")
-         (button "II")
-         (button "III")
-         (button "IV")))
+         (item :text "I")
+         (item :text "II")
+         (item :text "III")
+         (item :text "IV")))
 
 (defwidget status []
     (box :orientation "horizontal"

@@ -21,7 +21,7 @@
                :halign "left"
                :class "bar"
 
-               (workspaces)
+               (item :text "  ${time}" :pos "start")
                (empty)
                (status)))
 
@@ -29,22 +29,21 @@
     (box :orientation "horizontal"
          :halign "start"
 
-         (item :text "I")
-         (item :text "II")
-         (item :text "III")
-         (item :text "IV")))
+         (item :text "I" :pos "start")
+         (item :text "II" :pos "start")
+         (item :text "III" :pos "start")
+         (item :text "IV" :pos "start")))
 
 (defwidget status []
     (box :orientation "horizontal"
          :halign "end"
          :class "status"
-          
-         (item :text "  ${battery}%")
-         (item :text "  ${time}")))
+         (item :text " ${volume}" :pos "end")
+         (item :text "  ${battery}%" :pos "end")))
 
-(defwidget item [text]
+(defwidget item [text pos]
     (box :orientation "horizontal"
-         :halign "end"
+         :halign pos
          :class "item"
          text))
 
@@ -52,6 +51,9 @@
     (box :orientation: "horizontal"
          :halign "start"))
 
+(defpoll volume :interval "1s"
+              :initial ""
+              `if [[ $(pamixer --get-mute) == "true" ]]; then echo "muted"; else pamixer --get-volume; fi`)
 
 (defpoll battery :interval "60s"
               :initial ""

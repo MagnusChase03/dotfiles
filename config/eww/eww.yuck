@@ -18,21 +18,17 @@
 
 (defwidget bar []
     (centerbox :orientation "horizontal"
-               :halign "left"
                :class "bar"
 
                (item :text "  ${time}" :pos "start")
-               (empty)
+               (workspaces)
                (status)))
 
 (defwidget workspaces []
     (box :orientation "horizontal"
          :halign "start"
 
-         (item :text "I" :pos "start")
-         (item :text "II" :pos "start")
-         (item :text "III" :pos "start")
-         (item :text "IV" :pos "start")))
+         (item :text "${workspace_text}" :pos "start")))
 
 (defwidget status []
     (box :orientation "horizontal"
@@ -47,9 +43,10 @@
          :class "item"
          text))
 
-(defwidget empty []
-    (box :orientation: "horizontal"
-         :halign "start"))
+(defwidget empty [] (box))
+
+(deflisten workspace_text :initial ""
+                          `./scripts/workspaces.sh`)
 
 (defpoll volume :interval "1s"
               :initial ""

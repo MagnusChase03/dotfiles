@@ -13,7 +13,7 @@
                 height: 100%;
                 
                 color: white;
-                font-family: "firacode nerd font";
+                font-family: "Roboto", "firacode nerd font";
             }
             body {
                 margin-top: -20px;
@@ -42,6 +42,21 @@
                 width: 100%;
                 text-align: center;
             }
+            .profile-icon {
+                min-width: 300px;
+                width: 300px;
+                height: 300px;
+                overflow: hidden;
+                border-radius: 100%;
+                margin: 10px;
+            }
+            .icon {
+                width: 300px;
+            }
+            h1,p {
+                width: 100%;
+                text-align: left;
+            }
             hr {
                 width: 100%;
                 border: 1px solid white;
@@ -62,29 +77,49 @@
     <body>
         <div class="container">
             <div class="card">
-                <h1 id="time"></h1>
-                <h1>Welcome MagnusChase03</h1>
-                <p id="date"></p>
+                <div class="flex">
+                    <div class="profile-icon">
+                        <img class="icon" src="../../Pictures/pfp.jpg"/>
+                    </div>
+                    <div class="container">
+                        <h1 id="time"></h1>
+                        <h1>Welcome MagnusChase03</h1>
+                        <p id="date"></p>
+                    </div>
+                </div>
                 <hr>
                 <div class="flex">
                     <div class="item">
                         <li><a href="https://github.com">Github</a></li>
                         <li><a href="https://archlinux.org">ArchWiki</a></li>
+                        <li><a href="https://nixos.org">NixOS</a></li>
                     </div> 
                     <div class="item">
                         <li><a href="https://news.ycombinator.com">Hacker News</a></li>
+                        <li><a href="https://www.dailycodingproblem.com/">Daily Coding Problem</a></li>
                     </div> 
                 </div>
             </div>
         </div>
 
         <script>
-            let date = new Date();
+            function update_time() {
+                let date = new Date();
 
-            let date_ele = document.getElementById("date");
-            let time_ele = document.getElementById("time");
-            date_ele.textContent = date.toDateString();
-            time_ele.textContent = date.toLocaleTimeString();
+                let date_ele = document.getElementById("date");
+                let time_ele = document.getElementById("time");
+                date_ele.textContent = date.toDateString();
+
+                let time = date.toLocaleTimeString().split(":");
+                time[time.length - 2] += " " + time[time.length - 1].split(" ")[1];
+                time.pop(time.length - 1);
+                time_ele.textContent = time.join(":");
+            }
+
+            update_time();
+            setInterval(() => {
+                update_time();
+            }, 60000);
         </script>
     </body>
 

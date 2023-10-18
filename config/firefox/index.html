@@ -53,6 +53,20 @@
             .icon {
                 width: 300px;
             }
+            .search {
+                width: 100%;
+
+                font-size: 16px;
+                padding: 5px;
+                border: 2px solid black;
+                border-radius: 0px;
+
+                margin-bottom: 10px;
+            }
+            .search:focus {
+                outline: none;
+                outline-width: 0px;
+            }
             h1,p {
                 width: 100%;
                 text-align: left;
@@ -88,6 +102,8 @@
                     </div>
                 </div>
                 <hr>
+                <input id="search" class="search" type="text" onkeypress="search(event)" placeholder="Search DuckDuckGo" />
+                <hr>
                 <div class="flex">
                     <div class="item">
                         <li><a href="https://github.com">Github</a></li>
@@ -114,6 +130,13 @@
                 time[time.length - 2] += " " + time[time.length - 1].split(" ")[1];
                 time.pop(time.length - 1);
                 time_ele.textContent = time.join(":");
+            }
+
+            function search(event) {
+                if (event.key == "Enter") {
+                    let element = document.getElementById("search");
+                    window.location.href = "https://duckduckgo.com/?t=ffab&q=" + element.value;
+                }
             }
 
             update_time();

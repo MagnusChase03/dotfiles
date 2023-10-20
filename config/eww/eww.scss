@@ -1,5 +1,7 @@
+* {all: unset;}
+
 .bar {
-    font-family: FiraCode Nerd Font;
+    font-family: Hack Nerd Font;
     font-size: 16px;
     background-color: #303446;
     color: white;
@@ -14,7 +16,7 @@ button:hover {
 }
 
 .status {
-    margin-right: 20px;
+    margin-right: -50px;
 }
 
 .item {

@@ -20,7 +20,7 @@
     (centerbox :orientation "horizontal"
                :class "bar"
 
-               (item :text "  ${time}" :pos "start")
+               (item :text "   ${time}" :pos "start")
                (workspaces)
                (status)))
 
@@ -34,14 +34,22 @@
     (box :orientation "horizontal"
          :halign "end"
          :class "status"
-         (item :text " ${volume}" :pos "end")
-         (item :text "  ${battery}%" :pos "end")))
+         (item :text "   ${volume}" :pos "start")
+         (item :text "    ${battery}%" :pos "start")
+         (power_button)))
 
 (defwidget item [text pos]
     (box :orientation "horizontal"
          :halign pos
          :class "item"
          text))
+
+(defwidget power_button []
+    (box :orientation "horizontal"
+         :halign "start"
+         :class "power_button item"
+         (button :onclick `sudo poweroff`
+                 "⏻")))
 
 (defwidget empty [] (box))
 

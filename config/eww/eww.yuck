@@ -47,7 +47,7 @@
 (defwidget power_button []
     (box :orientation "horizontal"
          :halign "start"
-         :class "power_button item"
+         :class "item"
          (button :onclick `sudo poweroff`
                  "⏻")))
 
@@ -66,5 +66,5 @@
 
 (defpoll time :interval "1s"
               :initial ""
-              `date +%H:%M`)
+              `date +"%m/%d  %H:%M"`)
 

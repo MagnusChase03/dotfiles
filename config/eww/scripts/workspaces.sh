@@ -17,7 +17,7 @@ while [[ 1 == 1 ]]; do
         done
     
         old_active_workspace=$active_workspace
-        echo $output
+        echo "(label :text \"$output\")"
     fi
     sleep 0.5
 

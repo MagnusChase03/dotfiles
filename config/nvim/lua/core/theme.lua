@@ -1,1 +1,2 @@
-vim.cmd.colorscheme "catppuccin-frappe"
+require('onedark').load()
+vim.cmd.colorscheme "onedark"

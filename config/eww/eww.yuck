@@ -20,51 +20,45 @@
     (centerbox :orientation "horizontal"
                :class "bar"
 
-               (item :text "   ${time}" :pos "start")
-               (workspaces)
-               (status)))
+               (left)
+               (center)
+               (right)))
+
+(defwidget left [] 
+    (box :orientation "horizontal"
+         :class "left"
+         :halign "start"
+         :valign "center"
+         (workspaces)))
 
 (defwidget workspaces []
+    (literal :content workspace))
+
+(defwidget center []
     (box :orientation "horizontal"
-         :halign "start"
+         :class "center"))
 
-         (item :text "${workspace_text}" :pos "start")))
-
-(defwidget status []
+(defwidget right []
     (box :orientation "horizontal"
          :halign "end"
-         :class "status"
-         (item :text "   ${volume}" :pos "start")
-         (item :text "    ${battery}%" :pos "start")
-         (power_button)))
+         :class "right"
+         (clock)))
 
-(defwidget item [text pos]
-    (box :orientation "horizontal"
-         :halign pos
-         :class "item"
-         text))
+(defwidget clock []
+    (eventbox :onhover "eww -c ~/.config/eww update time_rev=true"
+              :onhoverlost "eww update time_rev=false"
+              (box :orientation "horizontal"
+                   :class "clock"
+                   :space-evenly false
+                   (label :class "time"
+                          :text "   ${time}")
+                   (revealer :transition "slideleft"
+                             :reveal time_rev
+                             :duration "350ms"
+                             (label :class "date"
+                                    :text date)))))
 
-(defwidget power_button []
-    (box :orientation "horizontal"
-         :halign "start"
-         :class "item"
-         (button :onclick `sudo poweroff`
-                 "⏻")))
-
-(defwidget empty [] (box))
-
-(deflisten workspace_text :initial ""
-                          `./scripts/workspaces.sh`)
-
-(defpoll volume :interval "1s"
-              :initial ""
-              `if [[ $(pamixer --get-mute) == "true" ]]; then echo "muted"; else pamixer --get-volume; fi`)
-
-(defpoll battery :interval "60s"
-              :initial ""
-              `cat /sys/class/power_supply/BAT1/capacity`)
-
-(defpoll time :interval "1s"
-              :initial ""
-              `date +"%m/%d  %H:%M"`)
-
+(defpoll time :interval "5s" "date +%H:%M")
+(defpoll date :interval "1m" "date +%m/%d")
+(defvar time_rev false)
+(deflisten workspace "./scripts/workspaces.sh")

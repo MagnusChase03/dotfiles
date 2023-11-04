@@ -1,5 +1,11 @@
 * {all: unset;}
 
+tooltip {
+    font-weight: bold;
+    background-color: #272727;
+    border-radius: 10px;
+}
+
 .bar {
     font-family: Roboto, Roboto Mono Nerd Font;
     font-size: 16px;
@@ -15,12 +21,67 @@
     margin-right: 10px;
 }
 
-.time {
+.battery, .time {
     font-weight: bold;
-    margin: 0px;
+}
+
+.volume {
+    font-size: 24px;
+}
+
+.volume_module trough highlight { 
+    background-color: #5299d3;
+    border-radius: 10px;
+}
+
+.volume_module scale trough {
+    all: unset;
+    background-color: #f1fffa;
+    min-width: 50px;
+    min-height: 10px;
+    border-radius: 10px;
+    margin-left: 10px;
+}
+
+.battery_icon {
+    color: #4cb944;
 }
 
 .date {
     font-style: italic;
     margin-left: 10px;
+}
+
+.power {
+    color: #ef8354;
+}
+
+.calender {
+    font-family: Roboto, Roboto Mono Nerd Font;
+    font-size: 16px;
+    background-color: #272727;
+    color: #f1fffa;
+
+    background: #272727;
+    padding: 20px;
+    border: 2px solid #f1fffa;
+    border-radius: 10px;
+}
+
+.calender_controls {
+    color: #ef8354;
+    margin-bottom: 10px;
+}
+
+calendar:selected {
+    background-color: #5299d3;
+    border-radius: 10px;
+}
+
+calendar .header {
+    font-weight: bold;
+}
+
+calendar .highlight {
+    font-weight: bold;
 }

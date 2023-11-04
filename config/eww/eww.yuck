@@ -42,10 +42,43 @@
     (box :orientation "horizontal"
          :halign "end"
          :class "right"
-         (clock)))
+         :space-evenly false
+         :spacing "20"
+         (volume)
+         (battery)
+         (clock)
+         (power)))
+
+(defwidget volume []
+    (eventbox :onhover "eww update vol_rev=true"
+              :onhoverlost "eww update vol_rev=false"
+              (box :orientation "horizontal"
+                   :class "volume_module"
+                   :space-evenly false
+                   (label :text "󰕾 "
+                          :class "volume")
+                   (revealer :transition "slideleft"
+                             :reveal vol_rev
+                             :duration "350ms"
+                             (box :orientation "horizontal"
+                                  :space-evenly false
+                                  (label :text "${volume_percent}%")
+                                  (scale :class "volume_slider"
+                                         :orientation "horizontal"
+                                         :min 0
+                                         :max 100
+                                         :value volume_percent
+                                         :onchange "pamixer --set-volume {}"))))))
+
+(defwidget battery []
+    (box :orientation "horizontal"
+        :class "battery"
+        (label :text " " 
+               :class "battery_icon"
+               :tooltip "Battery: ${battery}%")))
 
 (defwidget clock []
-    (eventbox :onhover "eww -c ~/.config/eww update time_rev=true"
+    (eventbox :onhover "eww update time_rev=true"
               :onhoverlost "eww update time_rev=false"
               (box :orientation "horizontal"
                    :class "clock"
@@ -55,10 +88,45 @@
                    (revealer :transition "slideleft"
                              :reveal time_rev
                              :duration "350ms"
-                             (label :class "date"
-                                    :text date)))))
+                             (button :class "date"
+                                     :onclick "eww open calender"
+                                     date)))))
 
+(defwidget power []
+    (button :onclick "sudo poweroff"
+            :class "power"
+            "⏻ "))
+
+(defpoll volume_percent :interval "3s" "pamixer --get-volume")
 (defpoll time :interval "5s" "date +%H:%M")
 (defpoll date :interval "1m" "date +%m/%d")
+(defpoll battery :interval "1m" "cat /sys/class/power_supply/BAT1/capacity")
 (defvar time_rev false)
+(defvar vol_rev false)
 (deflisten workspace "./scripts/workspaces.sh")
+
+(defwindow calender
+    :monitor 0
+    :geometry (
+        geometry :x "20px"
+                 :y "20px"
+                 :width "20%"
+                 :anchor "bottom right")
+    :stacking "fg"
+    :wm-ignore false
+
+    (calender))
+
+(defwidget calender []
+    (box :orientation "vertical"
+         :class "calender"
+         :space-evenly false
+         (calender_controls)
+         (calendar)))
+
+(defwidget calender_controls []
+    (box :orientation "horizontal"
+         :halign "end"
+         :class "calender_controls"
+         (button :onclick "eww close calender"
+                 " ")))

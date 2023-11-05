@@ -68,7 +68,7 @@ tooltip {
     border-radius: 10px;
 }
 
-.calender_controls {
+.calender_controls, .power_menu_controls {
     color: #ef8354;
     margin-bottom: 10px;
 }
@@ -84,4 +84,53 @@ calendar .header {
 
 calendar .highlight {
     font-weight: bold;
+}
+
+.power_menu {
+    font-family: Roboto, Roboto Mono Nerd Font;
+    font-size: 16px;
+    background-color: #272727;
+
+    padding: 20px;
+    border: 2px solid #f1fffa;
+    border-radius: 10px;
+
+}
+
+.brightness_icon {
+    font-size: 24px;
+    color: #ffb800;
+}
+
+.brightness {
+    margin-bottom: 10px;
+}
+
+.brightness trough highlight { 
+    background-color: #ffb800;
+    border-radius: 10px;
+}
+
+.brightness scale trough {
+    all: unset;
+    background-color: #f1fffa;
+    min-width: 200px;
+    min-height: 10px;
+    border-radius: 10px;
+    margin-left: 20px;
+}
+
+.power_button {
+    font-size: 48px;
+    border: 2px solid #f1fffa;
+    border-radius: 10px;
+}
+
+.power_button:nth-child(1) {
+    color: #5299d3;
+}
+
+.power_button:nth-child(2) {
+    color: #ef8354;
+    padding-right: 5px;
 }

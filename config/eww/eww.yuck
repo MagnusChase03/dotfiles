@@ -43,7 +43,7 @@
          :halign "end"
          :class "right"
          :space-evenly false
-         :spacing "20"
+         :spacing "30"
          (volume)
          (battery)
          (clock)
@@ -73,7 +73,7 @@
 (defwidget battery []
     (box :orientation "horizontal"
         :class "battery"
-        (label :text " " 
+        (label :text "" 
                :class "battery_icon"
                :tooltip "Battery: ${battery}%")))
 
@@ -93,9 +93,9 @@
                                      date)))))
 
 (defwidget power []
-    (button :onclick "sudo poweroff"
+    (button :onclick "eww open power_menu"
             :class "power"
-            "⏻ "))
+            "⏻"))
 
 (defpoll volume_percent :interval "3s" "pamixer --get-volume")
 (defpoll time :interval "5s" "date +%H:%M")
@@ -129,4 +129,58 @@
          :halign "end"
          :class "calender_controls"
          (button :onclick "eww close calender"
-                 " ")))
+                 "")))
+
+(defwindow power_menu
+    :monitor 0
+    :geometry (
+        geometry :x "20px"
+                 :y "20px"
+                 :width "15%"
+                 :anchor "bottom right")
+    :stacking "fg"
+    :wm-ignore false
+
+    (power_menu))
+
+(defwidget power_menu []
+    (box :orientation "vertical"
+         :space-evenly false
+         :class "power_menu"
+         (power_menu_controls)
+         (brightness)
+         (power_buttons)))
+
+(defwidget power_menu_controls []
+    (box :orientation "horizontal"
+         :halign "end"
+         :class "power_menu_controls"
+         (button :onclick "eww close power_menu"
+                 "")))
+
+(defwidget brightness []
+    (box :orientation "horizontal"
+         :space-evenly false
+         :class "brightness"
+         (label :class "brightness_icon"
+                :text "󰃞")
+         (scale :class "brightness_slider"
+                :orientation "horizontal"
+                :min 1200
+                :max brightness_max
+                :value brightness_percent
+                :onchange "brightnessctl s {}")))
+
+(defwidget power_buttons []
+    (box :orientation "horizontal"
+         :class "power_buttons"
+         :spacing "10"
+         (button :onclick "sudo restart"
+                 :class "power_button"
+                 "")
+         (button :onclick "sudo poweroff"
+                 :class "power_button"
+                 "⏻")))
+
+(defvar brightness_max 24000)
+(defpoll brightness_percent :interval "5s" "brightnessctl g")

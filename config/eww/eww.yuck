@@ -2,8 +2,8 @@
     :monitor 0
     :geometry (
         geometry :x "0%"
-                 :y "0%"
-                 :width "100%"
+                 :y "5px"
+                 :width "99%"
                  :height "42px"
                  :anchor "bottom center")
     :stacking "fg"
@@ -44,10 +44,18 @@
          :class "right"
          :space-evenly false
          :spacing "30"
+         (wifi)
          (volume)
          (battery)
          (clock)
          (power)))
+
+(defwidget wifi []
+    (box :orientation "horizontal"
+         :class "wifi"
+         (label :text ""
+                :class "wifi_icon"
+                :tooltip "IP: ${ip_address}")))
 
 (defwidget volume []
     (eventbox :onhover "eww update vol_rev=true"
@@ -55,27 +63,28 @@
               (box :orientation "horizontal"
                    :class "volume_module"
                    :space-evenly false
-                   (label :text "󰕾 "
-                          :class "volume")
+                   (label :text "󰖀"
+                          :class "volume_icon")
                    (revealer :transition "slideleft"
                              :reveal vol_rev
                              :duration "350ms"
                              (box :orientation "horizontal"
                                   :space-evenly false
-                                  (label :text "${volume_percent}%")
+                                  :class "volume"
                                   (scale :class "volume_slider"
                                          :orientation "horizontal"
                                          :min 0
                                          :max 100
                                          :value volume_percent
+                                         :tooltip "Volume: ${volume_percent}%"
                                          :onchange "pamixer --set-volume {}"))))))
 
 (defwidget battery []
     (box :orientation "horizontal"
-        :class "battery"
-        (label :text "" 
-               :class "battery_icon"
-               :tooltip "Battery: ${battery}%")))
+         :class "battery"
+         (label :text "" 
+                :class "battery_icon"
+                :tooltip "Battery: ${battery}%")))
 
 (defwidget clock []
     (eventbox :onhover "eww update time_rev=true"
@@ -89,14 +98,15 @@
                              :reveal time_rev
                              :duration "350ms"
                              (button :class "date"
-                                     :onclick "eww open calender"
+                                     :onclick "./scripts/popout.sh calender"
                                      date)))))
 
 (defwidget power []
-    (button :onclick "eww open power_menu"
+    (button :onclick "./scripts/popout.sh power_menu"
             :class "power"
             "⏻"))
 
+(defpoll ip_address :interval "5s" "ip a | grep wlp | grep inet | gawk '{printf(\"%s\",$2)}'")
 (defpoll volume_percent :interval "3s" "pamixer --get-volume")
 (defpoll time :interval "5s" "date +%H:%M")
 (defpoll date :interval "1m" "date +%m/%d")
@@ -121,15 +131,7 @@
     (box :orientation "vertical"
          :class "calender"
          :space-evenly false
-         (calender_controls)
          (calendar)))
-
-(defwidget calender_controls []
-    (box :orientation "horizontal"
-         :halign "end"
-         :class "calender_controls"
-         (button :onclick "eww close calender"
-                 "")))
 
 (defwindow power_menu
     :monitor 0
@@ -147,16 +149,9 @@
     (box :orientation "vertical"
          :space-evenly false
          :class "power_menu"
-         (power_menu_controls)
          (brightness)
          (power_buttons)))
 
-(defwidget power_menu_controls []
-    (box :orientation "horizontal"
-         :halign "end"
-         :class "power_menu_controls"
-         (button :onclick "eww close power_menu"
-                 "")))
 
 (defwidget brightness []
     (box :orientation "horizontal"

@@ -11,6 +11,7 @@ tooltip {
     font-size: 16px;
     background-color: #272727;
     color: #f1fffa;
+    border-radius: 10px;
 }
 
 .left {
@@ -18,15 +19,24 @@ tooltip {
 }
 
 .right {
-    margin-right: 10px;
+    margin-right: 20px;
 }
 
-.battery, .time {
-    font-weight: bold;
+.workspaces {
+    color: #5299d3;
+}
+
+.wifi_icon {
+    color: #a167a5;
+}
+
+.volume_icon {
+    font-size: 24px;
+    color: #5299d3;
 }
 
 .volume {
-    font-size: 24px;
+    margin-left: 10px;
 }
 
 .volume_module trough highlight { 
@@ -36,7 +46,7 @@ tooltip {
 
 .volume_module scale trough {
     all: unset;
-    background-color: #f1fffa;
+    background-color: #272727;
     min-width: 50px;
     min-height: 10px;
     border-radius: 10px;
@@ -45,6 +55,10 @@ tooltip {
 
 .battery_icon {
     color: #4cb944;
+}
+
+.time {
+    font-weight: bold;
 }
 
 .date {
@@ -59,31 +73,29 @@ tooltip {
 .calender {
     font-family: Roboto, Roboto Mono Nerd Font;
     font-size: 16px;
+    font-weight: bold;
     background-color: #272727;
     color: #f1fffa;
 
     background: #272727;
     padding: 20px;
-    border: 2px solid #f1fffa;
     border-radius: 10px;
-}
-
-.calender_controls, .power_menu_controls {
-    color: #ef8354;
-    margin-bottom: 10px;
 }
 
 calendar:selected {
-    background-color: #5299d3;
-    border-radius: 10px;
+    color: #5299d3;
 }
 
 calendar .header {
-    font-weight: bold;
+    color: #5299d3;
+}
+
+calendar .button {
+    color: #f1fffa;
 }
 
 calendar .highlight {
-    font-weight: bold;
+    color: #a167a5;
 }
 
 .power_menu {
@@ -92,7 +104,6 @@ calendar .highlight {
     background-color: #272727;
 
     padding: 20px;
-    border: 2px solid #f1fffa;
     border-radius: 10px;
 
 }
@@ -113,7 +124,7 @@ calendar .highlight {
 
 .brightness scale trough {
     all: unset;
-    background-color: #f1fffa;
+    background-color: #272727;
     min-width: 200px;
     min-height: 10px;
     border-radius: 10px;
@@ -122,12 +133,10 @@ calendar .highlight {
 
 .power_button {
     font-size: 48px;
-    border: 2px solid #f1fffa;
-    border-radius: 10px;
 }
 
 .power_button:nth-child(1) {
-    color: #5299d3;
+    color: #00e0e0;
 }
 
 .power_button:nth-child(2) {

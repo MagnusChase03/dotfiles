@@ -20,6 +20,7 @@ return require('packer').startup(function(use)
   use 'nvim-telescope/telescope.nvim'
   use 'neoclide/coc.nvim'
   use 'folke/tokyonight.nvim'
+  use 'romgrk/barbar.nvim'
   -- My plugins here
   -- use 'foo1/bar1.nvim'
   -- use 'foo2/bar2.nvim'

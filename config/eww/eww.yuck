@@ -161,7 +161,7 @@
                 :text "󰃞")
          (scale :class "brightness_slider"
                 :orientation "horizontal"
-                :min 1200
+                :min 600
                 :max brightness_max
                 :value brightness_percent
                 :onchange "brightnessctl s {}")))

@@ -1,12 +1,60 @@
 {
-  "Class": {
+  "Latexinit": {
     "prefix": ["latexinit"],
     "body": [
-        "\\documentclass{article}",
-        "\\begin{document}",
-        "$0",
+        "\\documentclass[12pt, letterpaper]{article}",
+        "\\title{}",
+        "\\author{}",
+        "\\date{}",
+        "\\usepackage{amsmath}\n",
+        "\\usepackage{listings}\n",
+        "\\begin{document}\n",
+        "\\maketitle",
+        "\\break",
+        "\\tableofcontents",
+        "\\break\n",
+        "\\section{Header}",
+        "$0\n",
         "\\end{document}"
      ],
     "description": "Initlize a new latex document."
+  },
+  "Latexlist": {
+    "prefix": ["latexlist"],
+    "body": [
+        "\\begin{itemize}",
+        "\t\\item $0",
+        "\\end{itemize}"
+     ],
+    "description": "Initlize a new latex list."
+  },
+  "Latextable": {
+    "prefix": ["latextable"],
+    "body": [
+        "\\begin{tabular}{|c|c|c|}",
+        "\t\\hline",
+        "\tvalue & value & value $0 \\\\\\",
+        "\t\\hline",
+        "\\end{tabular}"
+     ],
+    "description": "Initlize a new latex table."
+  },
+  "Latexmatrix": {
+    "prefix": ["latexmatrix"],
+    "body": [
+        "\\[\\begin{matrix}",
+        "\t0 & 1 & 2 $0 \\\\\\",
+        "\\end{matrix}\\]"
+     ],
+    "description": "Initlize a new latex matrix."
+  },
+  "Latexcode": {
+    "prefix": ["latexcode"],
+    "body": [
+        "\\begin{lstlisting}",
+        "$0",
+        "\\end{lstlisting}"
+     ],
+    "description": "Initlize a new latex code block."
   }
 }

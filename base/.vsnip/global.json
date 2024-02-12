@@ -1,0 +1,12 @@
+{
+  "Class": {
+    "prefix": ["latexinit"],
+    "body": [
+        "\\documentclass{article}",
+        "\\begin{document}",
+        "$0",
+        "\\end{document}"
+     ],
+    "description": "Initlize a new latex document."
+  }
+}

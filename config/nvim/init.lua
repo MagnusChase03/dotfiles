@@ -1,4 +1,9 @@
 -- Settings
+vim.cmd("filetype plugin indent on")
+vim.cmd("set conceallevel=1")
+vim.g.vimtex_view_method='zathura'
+vim.g.tex_conceal='abdmg'
+
 vim.cmd("syntax on")
 vim.cmd("set number")
 vim.cmd("set expandtab")
@@ -20,7 +25,6 @@ vim.cmd("nnoremap <tab> :NvimTreeToggle<CR>")
 vim.cmd("nnoremap <c-t> :ToggleTerm direction=float<CR>")
 
 vim.cmd("colorscheme tokyonight-moon")
-
 -- Packer
 local ensure_packer = function()
     local fn = vim.fn
@@ -160,6 +164,8 @@ return require('packer').startup(function(use)
 
     use 'hrsh7th/cmp-vsnip'
     use 'hrsh7th/vim-vsnip'
+
+    use 'lervag/vimtex'
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins

@@ -29,8 +29,8 @@ colors:
     white:   '0xacb0d0'
 font:
   normal:
-    family: JetBrains Mono
-  size: 12
+    family: Iosevka
+  size: 11
 
 window:
   padding:

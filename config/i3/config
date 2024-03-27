@@ -55,6 +55,7 @@ tiling_drag modifier titlebar
 
 # start a terminal
 bindsym Mod1+Return exec alacritty
+bindsym Mod1+c exec cutter
 bindsym Mod1+q exec i3lock-fancy-rapid 10 10
 
 # kill focused window
@@ -202,13 +203,16 @@ bindsym Mod1+r mode "resize"
 #        status_command i3status
 #}
 
-client.unfocused #000000 #000000 #000000 #000000 #7aa2f7
-client.focused #000000 #000000 #000000 #000000 #7aa2f7
+#client.unfocused #000000 #000000 #000000 #000000 #7aa2f7
+#client.focused #000000 #000000 #000000 #000000 #7aa2f7
 
-for_window [all] border pixel 2
+#for_window [all] border pixel 2
 #smart_borders on
+default_border pixel 0
 gaps inner 15
 
 exec picom -b
-exec feh --bg-fill ~/Pictures/wallpaper.jpg
+exec feh --bg-fill ~/Pictures/gwallpaper.jpg
 exec ~/.config/polybar/launch.sh
+#exec eww daemon
+#exec eww open bar

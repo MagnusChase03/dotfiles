@@ -21,6 +21,27 @@
      ],
     "description": "Initlize a new latex document."
   },
+  "Latexinitieee": {
+    "prefix": ["latexinitieee"],
+    "body": [
+        "\\documentclass[conference]{IEEEtran}",
+        "\\title{}",
+        "\\author{}",
+        "\\date{}",
+        "\\usepackage{amsmath}",
+        "\\usepackage{listings}",
+        "\\usepackage{fontspec}",
+        "\\setmainfont{JetBrains Mono}\n",
+        "\\begin{document}\n",
+        "\\maketitle",
+        "\\begin{abstract}",
+        "\\end{abstract}",
+        "\\section{Header}",
+        "$0\n",
+        "\\end{document}"
+     ],
+    "description": "Initlize a new latex document."
+  },
   "Latexlist": {
     "prefix": ["latexlist"],
     "body": [

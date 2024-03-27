@@ -155,8 +155,8 @@ entry {
 }
 
 window, mainbox, prompt, entry, element, element-icon, element-text {
-    text-color: #a9b1d6;
-    background-color: #1a1b26;
+    text-color: #ebdbb2;
+    background-color: #282828;
 }
 
 element, element-icon, element-text {
@@ -169,5 +169,5 @@ element normal.normal, element alternate.normal {
 }
 
 element selected.normal, element-icon selected.normal, element-text selected.normal {
-    background-color: #32344a;
+    background-color: #323232;
 }

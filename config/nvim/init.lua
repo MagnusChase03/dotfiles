@@ -1,30 +1,3 @@
--- Settings
-vim.cmd("filetype plugin indent on")
-vim.cmd("set conceallevel=1")
-vim.g.vimtex_view_method='zathura'
-vim.g.tex_conceal='abdmg'
-
-vim.cmd("syntax on")
-vim.cmd("set number")
-vim.cmd("set expandtab")
-vim.cmd("set shiftwidth=4")
-vim.cmd("set tabstop=4")
-vim.cmd("set incsearch")
-vim.cmd("set hlsearch")
-vim.cmd("set ignorecase")
-vim.cmd("set mouse=a")
-vim.cmd("nnoremap <esc> :noh<CR>")
-vim.cmd("inoremap \" \"\"<LEFT>")
-vim.cmd("inoremap ' ''<LEFT>")
-vim.cmd("inoremap ` ``<LEFT>")
-vim.cmd("inoremap ( ()<LEFT>")
-vim.cmd("inoremap [ []<LEFT>")
-vim.cmd("inoremap { {}<LEFT>")
-
-vim.cmd("nnoremap <tab> :NvimTreeToggle<CR>")
-vim.cmd("nnoremap <c-t> :ToggleTerm direction=float<CR>")
-
-vim.cmd("colorscheme tokyonight-moon")
 -- Packer
 local ensure_packer = function()
     local fn = vim.fn
@@ -39,10 +12,80 @@ end
 
 local packer_bootstrap = ensure_packer()
 
+-- Settings
+require('packer').startup(function(use)
+    use 'wbthomason/packer.nvim'
+    -- My plugins here
+    -- use 'foo1/bar1.nvim'
+    -- use 'foo2/bar2.nvim'
+    use 'ryanoasis/vim-devicons'
+    use 'nvim-tree/nvim-web-devicons' 
+    use 'romgrk/barbar.nvim'
+    use 'nvim-lualine/lualine.nvim'
+    use 'folke/tokyonight.nvim'
+    use 'ellisonleao/gruvbox.nvim'
+    use 'nvim-tree/nvim-tree.lua'
+    use 'akinsho/toggleterm.nvim'
+    use 'nvimdev/dashboard-nvim'
+
+    use 'neovim/nvim-lspconfig'
+    use 'hrsh7th/cmp-nvim-lsp'
+    use 'hrsh7th/cmp-buffer'
+    use 'hrsh7th/cmp-path'
+    use 'hrsh7th/cmp-cmdline'
+    use 'hrsh7th/nvim-cmp'
+
+    use 'hrsh7th/cmp-vsnip'
+    use 'hrsh7th/vim-vsnip'
+
+    use 'lervag/vimtex'
+
+    use 'nvim-lua/plenary.nvim'
+    use 'nvim-telescope/telescope.nvim'
+
+    -- Automatically set up your configuration after cloning packer.nvim
+    -- Put this at the end after all plugins
+    if packer_bootstrap then
+        require('packer').sync()
+    end
+end)
+
+vim.cmd("filetype plugin indent on")
+vim.cmd("set conceallevel=1")
+vim.g.vimtex_view_method='zathura'
+vim.g.tex_conceal='abdmg'
+
+vim.cmd("syntax on")
+vim.cmd("set number")
+vim.cmd("set expandtab")
+vim.cmd("set shiftwidth=4")
+vim.cmd("set tabstop=4")
+vim.cmd("set incsearch")
+vim.cmd("set hlsearch")
+vim.cmd("set ignorecase")
+vim.cmd("set mouse=a")
+vim.cmd("set cursorline")
+vim.cmd("set colorcolumn=80")
+vim.cmd("nnoremap <esc> :noh<CR>")
+vim.cmd("inoremap \" \"\"<LEFT>")
+vim.cmd("inoremap ' ''<LEFT>")
+vim.cmd("inoremap ` ``<LEFT>")
+vim.cmd("inoremap ( ()<LEFT>")
+vim.cmd("inoremap [ []<LEFT>")
+vim.cmd("inoremap { {}<LEFT>")
+
+vim.cmd("nnoremap <tab> :NvimTreeToggle<CR>")
+vim.cmd("nnoremap <c-t> :ToggleTerm direction=float<CR>")
+
+-- vim.cmd("colorscheme tokyonight-moon")
+vim.cmd("set background=dark")
+vim.cmd("colorscheme gruvbox")
+
 require('lualine').setup {
     options = {
         icons_enabled = true,
-        theme = 'palenight',
+        --theme = 'palenight',
+        theme = 'gruvbox',
         component_separators = { left = '', right = ''},
         section_separators = { left = '', right = ''},
         disabled_filetypes = {
@@ -141,35 +184,8 @@ require('dashboard').setup {
     }
 }
 
-return require('packer').startup(function(use)
-    use 'wbthomason/packer.nvim'
-    -- My plugins here
-    -- use 'foo1/bar1.nvim'
-    -- use 'foo2/bar2.nvim'
-    use 'ryanoasis/vim-devicons'
-    use 'nvim-tree/nvim-web-devicons' 
-    use 'romgrk/barbar.nvim'
-    use 'nvim-lualine/lualine.nvim'
-    use 'folke/tokyonight.nvim'
-    use 'nvim-tree/nvim-tree.lua'
-    use 'akinsho/toggleterm.nvim'
-    use 'nvimdev/dashboard-nvim'
-
-    use 'neovim/nvim-lspconfig'
-    use 'hrsh7th/cmp-nvim-lsp'
-    use 'hrsh7th/cmp-buffer'
-    use 'hrsh7th/cmp-path'
-    use 'hrsh7th/cmp-cmdline'
-    use 'hrsh7th/nvim-cmp'
-
-    use 'hrsh7th/cmp-vsnip'
-    use 'hrsh7th/vim-vsnip'
-
-    use 'lervag/vimtex'
-
-    -- Automatically set up your configuration after cloning packer.nvim
-    -- Put this at the end after all plugins
-    if packer_bootstrap then
-        require('packer').sync()
-    end
-end)
+local builtin = require('telescope.builtin')
+vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
+vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
+vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
+vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})

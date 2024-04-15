@@ -56,13 +56,13 @@ tiling_drag modifier titlebar
 # start a terminal
 bindsym Mod1+Return exec alacritty
 bindsym Mod1+c exec cutter
-bindsym Mod1+q exec i3lock-fancy-rapid 10 10
+bindsym Mod1+q exec i3lock -ef -i /home/benio/Pictures/gwallpaper.jpg
 
 # kill focused window
 bindsym Mod1+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym Mod1+d exec --no-startup-id rofi -show drun
+bindsym Mod1+d exec --no-startup-id dmenu_run
 # A more modern dmenu replacement is rofi:
 # bindsym Mod1+d exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
@@ -209,10 +209,11 @@ bindsym Mod1+r mode "resize"
 #for_window [all] border pixel 2
 #smart_borders on
 default_border pixel 0
-gaps inner 15
+gaps inner 8
 
 exec picom -b
 exec feh --bg-fill ~/Pictures/gwallpaper.jpg
 exec ~/.config/polybar/launch.sh
+exec dunst
 #exec eww daemon
 #exec eww open bar

@@ -109,11 +109,6 @@ _G.packer_plugins = {
     path = "/home/benio/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
-  ["gruvbox.nvim"] = {
-    loaded = true,
-    path = "/home/benio/.local/share/nvim/site/pack/packer/start/gruvbox.nvim",
-    url = "https://github.com/ellisonleao/gruvbox.nvim"
-  },
   ["leap.nvim"] = {
     loaded = true,
     path = "/home/benio/.local/share/nvim/site/pack/packer/start/leap.nvim",
@@ -123,6 +118,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/benio/.local/share/nvim/site/pack/packer/start/lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
+  },
+  nvim = {
+    loaded = true,
+    path = "/home/benio/.local/share/nvim/site/pack/packer/start/nvim",
+    url = "https://github.com/catppuccin/nvim"
   },
   ["nvim-cmp"] = {
     loaded = true,

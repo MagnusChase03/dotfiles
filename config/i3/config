@@ -212,7 +212,7 @@ default_border pixel 0
 gaps inner 8
 
 exec picom -b
-exec feh --bg-fill ~/Pictures/gwallpaper.jpg
+exec feh --bg-fill ~/Pictures/cwallpaper.png
 exec ~/.config/polybar/launch.sh
 exec dunst
 #exec eww daemon

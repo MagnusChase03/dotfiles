@@ -39,6 +39,8 @@ require('packer').startup(function(use)
 
     use 'ggandor/leap.nvim'
 
+    use 'akinsho/git-conflict.nvim'
+
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if packer_bootstrap then

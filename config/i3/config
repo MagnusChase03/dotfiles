@@ -62,7 +62,7 @@ bindsym Mod1+q exec i3lock -ef -i /home/benio/Pictures/gwallpaper.jpg
 bindsym Mod1+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym Mod1+d exec --no-startup-id dmenu_run
+bindsym Mod1+d exec --no-startup-id rofi -show drun
 # A more modern dmenu replacement is rofi:
 # bindsym Mod1+d exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a

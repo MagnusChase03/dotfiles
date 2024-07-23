@@ -1,6 +1,6 @@
 auto-reload yes
 reload-threads 16
-keep-articles-days 5
+keep-articles-days 7
 
 color listnormal         color15 default
 color listnormal_unread  color2  default

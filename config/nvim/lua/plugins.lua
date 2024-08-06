@@ -22,7 +22,8 @@ require('packer').startup(function(use)
     use 'nvim-tree/nvim-web-devicons' 
     use 'romgrk/barbar.nvim'
     use 'nvim-lualine/lualine.nvim'
-    use 'catppuccin/nvim'
+    --use 'catppuccin/nvim'
+    use 'navarasu/onedark.nvim'
     use 'nvim-tree/nvim-tree.lua'
 
     use 'nvim-lua/plenary.nvim'

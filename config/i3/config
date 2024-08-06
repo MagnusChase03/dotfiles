@@ -54,8 +54,7 @@ floating_modifier Mod1
 tiling_drag modifier titlebar
 
 # start a terminal
-bindsym Mod1+Return exec alacritty
-bindsym Mod1+c exec cutter
+bindsym Mod1+Return exec kitty
 bindsym Mod1+q exec i3lock -ef -i /home/benio/Pictures/gwallpaper.jpg
 
 # kill focused window

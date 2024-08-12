@@ -55,7 +55,7 @@ tiling_drag modifier titlebar
 
 # start a terminal
 bindsym Mod1+Return exec kitty
-bindsym Mod1+q exec i3lock -ef -i /home/benio/Pictures/gwallpaper.jpg
+bindsym Mod1+q exec i3lock -ef -i /home/benio/Pictures/gowall/kwallpaper.png
 
 # kill focused window
 bindsym Mod1+Shift+q kill

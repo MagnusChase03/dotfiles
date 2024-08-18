@@ -114,6 +114,14 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
+alias ip="grc ip"
+alias ping="grc ping"
+alias df="grc df"
+alias fdisk="sudo grc fdisk"
+alias free="grc free"
+alias ps="grc ps"
+alias env="grc env"
+
 alias ls="ls --color=auto"
 alias du="du -hd 1 | sort -h"
 alias vim="nvim"

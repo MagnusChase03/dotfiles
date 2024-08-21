@@ -67,3 +67,7 @@ cmp.setup.cmdline(':', {
 require('lspconfig').gopls.setup {
     capabilities = capabilities
 }
+
+require('lspconfig').clangd.setup {
+    capabilities = capabilities
+}

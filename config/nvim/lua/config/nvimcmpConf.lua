@@ -71,3 +71,7 @@ require('lspconfig').gopls.setup {
 require('lspconfig').clangd.setup {
     capabilities = capabilities
 }
+
+require('lspconfig')["jedi_language_server"].setup {
+    capabilities = capabilities
+}

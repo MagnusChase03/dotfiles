@@ -128,6 +128,13 @@ alias vim="nvim"
 alias make="make -B"
 alias kubectl="minikube kubectl --"
 
+function latex() {
+    lualatex $1
+    name=$(echo $1 | cut -d'.' -f1)
+    rm "$name.log"
+    rm "$name.aux"
+}
+
 if [ -z "$TMUX" ]; then
     tmux has-session -t default 2>/dev/null
     if [ $? != 0 ]; then

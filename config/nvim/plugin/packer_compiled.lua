@@ -84,6 +84,11 @@ _G.packer_plugins = {
     path = "/home/benio/.local/share/nvim/site/pack/packer/start/barbar.nvim",
     url = "https://github.com/romgrk/barbar.nvim"
   },
+  ["cinnamon.nvim"] = {
+    loaded = true,
+    path = "/home/benio/.local/share/nvim/site/pack/packer/start/cinnamon.nvim",
+    url = "https://github.com/declancm/cinnamon.nvim"
+  },
   ["cmp-buffer"] = {
     loaded = true,
     path = "/home/benio/.local/share/nvim/site/pack/packer/start/cmp-buffer",

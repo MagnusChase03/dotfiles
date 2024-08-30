@@ -42,6 +42,8 @@ require('packer').startup(function(use)
 
     use 'akinsho/git-conflict.nvim'
 
+    use 'declancm/cinnamon.nvim'
+
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if packer_bootstrap then
